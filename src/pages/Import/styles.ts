@@ -12,13 +12,14 @@ export const Title = styled.h1`
   font-weight: 500;
   font-size: 36px;
   line-height: 54px;
-  color: ${props => props.theme.colors.title};
+  color: ${props => props.theme.colors.color};
   text-align: center;
+  margin-top: -140px;
 `;
 
 export const ImportFileContainer = styled.section`
   background: ${props => props.theme.colors.backgroundSecundary};
-  margin-top: 40px;
+  margin-top: 120px;
   border-radius: 5px;
   padding: 64px;
 `;

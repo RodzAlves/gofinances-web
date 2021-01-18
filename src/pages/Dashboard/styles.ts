@@ -22,6 +22,11 @@ export const CardContainer = styled.section`
 
   grid-gap: 32px;
   margin-top: -150px;
+
+  @media (max-width: 820px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const Card = styled.div<CardProps>`
@@ -69,6 +74,12 @@ export const TableContainer = styled.section`
       text-align: left;
       font-size: 16px;
       line-height: 24px;
+
+      transition: 0.4s;
+
+      &:hover {
+        transform: translateX(10px);
+      }
     }
 
     td {
@@ -98,6 +109,20 @@ export const TableContainer = styled.section`
 
     td:last-child {
       border-radius: 0 8px 8px 0;
+    }
+
+    @media (max-width: 600px) {
+      max-width: 600px;
+      th {
+        padding: 10px 16px;
+        height: 60px;
+      }
+
+      td {
+        padding: 10px 10px;
+
+        height: 60px;
+      }
     }
   }
 `;
