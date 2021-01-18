@@ -2,45 +2,46 @@
   <img src="./.github/logo.svg" />
 </h1>
 
-<h4 align = "center">
-<img src = "https://img.shields.io/static/v1?label=&message=NODEJS&color=fff&style=for-the-badge&logo=node.js" />
-<img src = "https://img.shields.io/static/v1?label=&message=API&color=339933&style=for-the-badge&logo=json" />
-
 </h4>
 
-### Go Finances is an API designed to store incoming and outgoing financial transactions and allow the registration and listing of these transactions, in addition to allowing the creation of new records in the database by sending a csv file.
+### Go Finances is an application designed to store incoming and outgoing financial transactions and allow the registration and listing of these transactions, in addition to allowing the creation of new records in the database by sending a csv file.
 
 # <b> ⚡ Demonstration </b>
 
-<img src=".github/gif-gofinances.gif" >
+<h4 align="center">
+<img src=".github/gif-gofinances.gif" width="500" >
+<img src=".github/gif-mobile.gif" width="100">
+</h4>
 
 # 🛠 <b> Technologies </b>
 
 The following tools were used in the construction of the project:
 
-- [ReactJS](https://nodejs.org/en/)
-- [Styled Components](https://expressjs.com/) - Framework for Node.js, offers a set of resources for applications.
-- [TypeScript](https://typeorm.io/) - ORM (Object-Relational Mapper) for Node.js, makes the mapping of relational data to JavaScript and TypeScript objects.
-- [React Hooks](https://www.postgresql.org/) - Database chosen to save transactions' informations.
+- [ReactJS](https://reactjs.org/)
+- [Styled Components](https://styled-components.com/) - Framework to style React Components.
+- [TypeScript](https://www.typescriptlang.org/)
+- [React Hooks](https://reactjs.org/docs/hooks-intro.html) - Hooks are functions that let you “hook into” React state and lifecycle features from function components.
+- [Axios](https://github.com/axios/axios)
+
   <br>
 
 # <b> 🔥 Installation </b>
 
 Before you begin, you will need to have the following tools installed on your machine:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). And for the database, PostgreSQL or your preferred database.
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
 
 After that, let's move on to the next steps.
 
 <br>
 
 ```bash
-git clone https://github.com/RodzAlves/gofinances-backend.git
+git clone https://github.com/RodzAlves/gofinances-web.git
 ```
 
 Access the project folder
 
 ```bash
-cd gofinances-backend
+cd gofinances-web
 ```
 
 Install dependencies
@@ -49,91 +50,23 @@ Install dependencies
 npm install or yarn
 ```
 
-And the run API:
+And the run the server:
 
 ```bash
-yarn dev or npm run dev
+yarn start or npm run start
 
-# The server will start in: http://localhost:3333
+# The server will start in: http://localhost:3000
 ```
 
-And ready! The API is already running.
+And ready! The front-end a GoFinances project is already running.
 
 <br>
 
-# <b> ✴ Endpoints </b>
+# <b> 🚀 Testing the Front-end </b>
 
-- **`POST /transactions`**:
-  The route must receive `title`, `value`, `type` and `category` within the body of the request, the type of the transaction being either type, which should be `income` for entries (deposits) and `outcome` for exits (withdrawals).
+To install the front-end of this application it is recommended that you follow the steps on the link below and run the GoFinances API.
 
-```json
-{
-  "title": "Salary",
-  "value": "5000",
-  "type": "income",
-  "category": "Salary"
-}
-```
-
-- **`GET /transactions`**: The route returns all transactions registered so far. And the balance with values income, outcome and total.
-
-```json
-{
-  "transactions": [
-    {
-      "id": "84eef62a-5213-47a0-8d36-5ffaf7c2aade",
-      "title": "Salary",
-      "type": "income",
-      "value": "5000",
-      "category_id": "8379b242-06c0-4a79-939f-8f3461897e33",
-      "created_at": "2021-01-14T04:38:26.314Z",
-      "updated_at": "2021-01-14T04:38:26.314Z",
-      "category": {
-        "id": "8379b242-06c0-4a79-939f-8f3461897e33",
-        "title": "Salary",
-        "created_at": "2021-01-14T04:36:21.019Z",
-        "updated_at": "2021-01-14T04:36:21.019Z"
-      }
-    },
-    {
-      "id": "9b7f5742-7dc1-45f1-a693-7e57983d8fb9",
-      "title": "Shopping Food",
-      "type": "outcome",
-      "value": "1500",
-      "category_id": "1cf326fc-2950-417d-bbf8-a2dd1626c8c6",
-      "created_at": "2021-01-14T05:44:48.648Z",
-      "updated_at": "2021-01-14T05:44:48.648Z",
-      "category": {
-        "id": "1cf326fc-2950-417d-bbf8-a2dd1626c8c6",
-        "title": "Food",
-        "created_at": "2021-01-14T05:39:33.628Z",
-        "updated_at": "2021-01-14T05:39:33.628Z"
-      }
-    }
-  ],
-  "balance": {
-    "income": 5000,
-    "outcome": 1500,
-    "total": 3500
-  }
-}
-```
-
-- **`DELETE /transactions/:id`**: The route deletes a transaction with the `id` present in the route parameters.
-
-* **`POST /transactions/import`**: The route allows the import of a file with `.csv` format containing the same information needed to create a transaction `title`, `value`, `type`, `category`.
-
-# <b> 🚀 Testing the API (Back-end) </b>
-
-To test HTTP requests (GET, POST, PUT, DELETE) with API endpoints, I use and used [Insomnia](https://insomnia.rest/) in the project. However, there are other alternatives, such as Postman, if it is a preference.
-
-- [<b> Download Insomnia File</b>](https://gofile.io/d/FT3o0A)
-
-Or if you prefer, this application has a front-end (interface) to test some functionality, follow the link to the repository:
-
-- [<b>GoFinances Web</b>](https://github.com/RodzAlves/gofinances-web)
-
-- There you will have all the steps to run the front-end server.
+- [<b>GoFinances API</b>](https://github.com/RodzAlves/gofinances-backend)
 
 <br>
 
