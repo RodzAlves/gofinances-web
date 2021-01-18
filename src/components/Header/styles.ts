@@ -5,7 +5,7 @@ interface ContainerProps {
 }
 
 export const Container = styled.div<ContainerProps>`
-  background: #5636d3;
+  background: ${props => props.theme.colors.primary};
   padding: 30px 0;
 
   header {
@@ -18,19 +18,45 @@ export const Container = styled.div<ContainerProps>`
 
     nav {
       a {
-        color: #fff;
+        color: ${props => props.theme.colors.color};
         text-decoration: none;
         font-size: 16px;
         transition: opacity 0.2s;
+        position: relative;
+        padding-bottom: 5px;
+
+        &::after {
+          content: '';
+          position: absolute;
+          height: 2px;
+          width: 100%;
+          left: 0;
+          bottom: 0;
+          opacity: 0;
+          transform: translateY(3px);
+          background: #ff872c;
+          transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        &:hover::after {
+          opacity: 1;
+          transform: translateY(0);
+        }
 
         & + a {
           margin-left: 32px;
         }
-
-        &:hover {
-          opacity: 0.6;
-        }
       }
     }
+  }
+`;
+
+export const OptionsHeader = styled.div`
+  display: flex;
+  align-items: center;
+
+  a {
+    margin-left: 25px;
+    color: ${props => props.theme.colors.color};
   }
 `;

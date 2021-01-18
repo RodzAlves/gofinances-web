@@ -19,15 +19,23 @@ export const Title = styled.h1`
 export const CardContainer = styled.section`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
   grid-gap: 32px;
   margin-top: -150px;
 `;
 
-export const Card = styled.div`
-  background: ${({ total }: CardProps): string => (total ? '#FF872C' : '#fff')};
+export const Card = styled.div<CardProps>`
+  background: ${props =>
+    props.total ? '#FF872C' : props.theme.colors.backgroundSecundary};
   padding: 22px 32px;
   border-radius: 5px;
-  color: ${({ total }: CardProps): string => (total ? '#fff' : '#363F5F')};
+  color: ${props => (props.total ? '#fff' : props.theme.colors.title)};
+  cursor: pointer;
+  transition: 0.4s;
+
+  &:hover {
+    transform: translateX(10px);
+  }
 
   header {
     display: flex;
@@ -66,13 +74,13 @@ export const TableContainer = styled.section`
     td {
       padding: 20px 32px;
       border: 0;
-      background: #fff;
+      background: ${props => props.theme.colors.backgroundSecundary};
       font-size: 16px;
       font-weight: normal;
       color: #969cb3;
 
       &.title {
-        color: #363f5f;
+        color: ${props => props.theme.colors.title};
       }
 
       &.income {
